@@ -6,13 +6,13 @@
     <span>
       <span>已完成222{{completeSize}}</span> / 全部{{todos.length}}
     </span>
-    <button class="btn btn-danger" v-show="completeSize>0" @click="removeSelected">清除已完成任务</button>
+    <button class="btn btn-danger" v-show="completeSize>0" @click="removeSelect">清除已完成任务</button>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['todos', 'removeSelected', 'selelectAllTodos'],
+    props: ['todos', 'removeSelected'],
 
     computed: {
       completeSize () {
@@ -36,8 +36,16 @@
         },
         set (value) {
           // 更新todos
-          this.selelectAllTodos(value)
+          //this.selelectAllTodos(value)
+          // 触发自定义事件
+          this.$emit('selelectAllTodos', value)
         }
+      }
+    },
+
+    methods: {
+      removeSelect () {
+        this.$emit('xxx')
       }
     }
   }

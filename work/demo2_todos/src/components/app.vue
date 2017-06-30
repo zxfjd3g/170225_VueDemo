@@ -3,7 +3,7 @@
     <div class="todo-wrap">
       <demo-header :add="add"></demo-header>
       <list :todos="todos" :remove="remove"></list>
-      <demo-footer :todos="todos" :remove-selected="removeSelected" :selelect-all-todos="selelectAllTodos"></demo-footer>
+      <demo-footer ref="footer" :todos="todos" @selelectAllTodos="selelectAllTodos"></demo-footer>
     </div>
   </div>
 </template>
@@ -28,6 +28,23 @@
       setTimeout(() => {
         this.todos = storageUtils.readTodos()
       }, 1000)
+/*       // this不对
+      // 绑定自定义事件监听
+      //this.$on('xxx', this.removeSelected)
+     */
+/*      // 时间太早了
+      // 得到footer组件对象
+      var footer = this.$refs.footer
+      // 绑定自定义事件监听
+      footer.$on('xxx', this.removeSelected)
+      */
+    },
+
+    mounted () {// 此时已经template编译过了
+      // 得到footer组件对象
+      var footer = this.$refs.footer
+      // 绑定自定义事件监听
+      footer.$on('xxx', this.removeSelected)
     },
 
     methods: {
@@ -38,6 +55,7 @@
         this.todos.splice(index, 1)
       },
       removeSelected () {
+        console.log('removeSelected()')
         this.todos = this.todos.filter(todo => !todo.complete)
       },
       selelectAllTodos (isCheck) {
