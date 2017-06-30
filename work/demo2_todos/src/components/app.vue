@@ -13,16 +13,21 @@
   import list from './list.vue'
   import footer from './footer.vue'
 
+  import storageUtils from '../util/localStorageUtils'
+
   export default {
 
     data () {
       return {
-        todos: [
-          {name: '吃饭2', complete: false},
-          {name: '睡觉2', complete: true},
-          {name: '打代码2', complete: false}
-        ]
+        todos: []
       }
+    },
+
+    created () {
+      //模拟从后台
+      setTimeout(() => {
+        this.todos = storageUtils.readTodos()
+      }, 1000)
     },
 
     methods: {
@@ -39,6 +44,17 @@
         this.todos.forEach(todo => {
           todo.complete = isCheck
         })
+      }
+    },
+
+    watch: {
+      todos: {
+        deep: true,
+        /* handler (newTodos) {
+          // 保存
+          storageUtils.saveTodos(newTodos)
+        }, */
+        handler: storageUtils.saveTodos
       }
     },
 
