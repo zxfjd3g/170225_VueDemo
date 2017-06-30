@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-// import App from './components/App'
-import App from './components/App1'
+import App from './components/App'
+// import App from './components/App1'
 
 // 使用插件
 Vue.use(VueResource)
