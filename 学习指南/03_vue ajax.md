@@ -10,7 +10,7 @@
     ```
     // 引入模块
     import VueResource from 'vue-resource'
-    // 使用插件
+    // 声明使用插件
     Vue.use(VueResource)
    
     // 通过vue组件对象发送ajax请求
