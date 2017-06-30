@@ -46,7 +46,7 @@
   * 编码测试:
     * npm run dev
     * 访问: http://localhost:8080
-    * 编码, 自动编译打包(HMR), 查看效果
+    * 编码, 自动编译打包(HMR: hot module replace), 查看效果
   * 打包发布
     * npm run build
     * npm install -g pushstate-server

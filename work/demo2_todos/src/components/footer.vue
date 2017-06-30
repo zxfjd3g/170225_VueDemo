@@ -4,7 +4,7 @@
       <input type="checkbox" v-model="allComplete"/>
     </label>
     <span>
-      <span>已完成{{completeSize}}</span> / 全部{{todos.length}}
+      <span>已完成222{{completeSize}}</span> / 全部{{todos.length}}
     </span>
     <button class="btn btn-danger" v-show="completeSize>0" @click="removeSelected">清除已完成任务</button>
   </div>
