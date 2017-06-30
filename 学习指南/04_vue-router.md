@@ -133,11 +133,3 @@
       <router-view></router-view>
     </keep-alive>
     ```
-  * 路由组件中监视路由参数的变化
-    ```
-    watch: {
-      '$route' (to, from) {
-        // to为包含最新参数的$route对象
-      }
-    }
-    ```

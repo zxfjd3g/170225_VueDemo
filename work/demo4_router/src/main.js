@@ -5,6 +5,7 @@ import about from './components/about'
 import home from './components/home'
 import news from './components/news'
 import message from './components/message'
+import messageDetail from './components/messageDetail'
 
 Vue.use(VueRouter)
 
@@ -24,7 +25,13 @@ const router = new VueRouter({
         },
         {
           path: 'message',
-          component: message
+          component: message,
+          children: [
+            {
+              path: 'mdetail/:id',  //mdetail/4
+              component: messageDetail
+            }
+          ]
         }
       ]
     }

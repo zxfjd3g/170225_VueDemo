@@ -1,9 +1,15 @@
 <template>
-  <ul>
-    <li v-for="m in messages">
-      <a href="###">{{m.name}}</a>
-    </li>
-  </ul>
+  <div>
+    <ul>
+      <li v-for="m in messages">
+        <a href="###"></a>
+        <router-link :to="`/home/message/mdetail/${m.id}`">{{m.name}}</router-link>
+      </li>
+    </ul>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+  </div>
 </template>
 
 <script>

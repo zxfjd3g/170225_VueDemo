@@ -1,9 +1,15 @@
 <template>
-  <div>About route component</div>
+  <div>
+    <div>About route component</div>
+    <p>msg: {{msg}}</p>
+    <input type="text">
+  </div>
 </template>
 
 <script>
-  export default {}
+  export default {
+    props: ['msg']
+  }
 </script>
 
 <style>
